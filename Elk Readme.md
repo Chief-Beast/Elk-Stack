@@ -77,7 +77,7 @@ The playbook implements the following tasks:
 - Starts filebeat service
 - Enables service on boot
 
-- Installs metric meat
+- Installs metric beat
 - Enables and configures docker module for metric beat
 - Starts metric beat
 - Enables service on boot
@@ -85,7 +85,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![docker ps output](images/docker-ps.PNG)
 
 
 Install-ELK
@@ -148,8 +148,8 @@ Install-ELK
 This ELK server is configured to monitor the following machines:
 WEB 1 and WEB 2 VM's, at 10.0.0.5 and 10.0.0.6
 
-We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+We have installed the following Beats on these machines: Filebeat and Metric Beat
+
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
