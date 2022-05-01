@@ -90,21 +90,25 @@ The following screenshot displays the result of running `docker ps` after succes
 This ELK server is configured to monitor the following machines:
 WEB 1 and WEB 2 VM's, at 10.0.0.5 and 10.0.0.6
 
-We have installed the following Beats on these machines: Filebeat and Metric Beat
+We have installed the following Beats on these machines: Filebeat and Metricbeat
 
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
+Filebeat: watches for log files/locations and collect log events. 
+
+Metricbeat: records metrics and statistical data from the operating system and from services running on the server 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. We use the Jump-Box-Provisioner for this. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the playbook file to ansible control node.
+- Copy the playbook file to ansible control node
 - Update the hosts file to include groups and IP's
+- Copy the files to the /etc/ansible/ directory
 - Run the playbook, and navigate to Kibana to check that the installation worked as expected.
 
-Go to http://20.211.104.97:5601/app/kibana#/home
+Go to http://20.211.104.97:5601/app/kibana#/home to confirm that the installation has worked. 
 
 Command to download the playbook:
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-darwin-x86_64.tar.gz
