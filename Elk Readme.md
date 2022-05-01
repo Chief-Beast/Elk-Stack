@@ -111,6 +111,6 @@ SSH into the control node and follow the steps below:
 Go to http://20.211.104.97:5601/app/kibana#/home to confirm that the installation has worked. 
 
 Command to download the playbook:
-curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-darwin-x86_64.tar.gz
-tar xzvf filebeat-7.6.1-darwin-x86_64.tar.gz
-cd filebeat-7.6.1-darwin-x86_64/
+-curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-darwin-x86_64.tar.gz
+-tar xzvf filebeat-7.6.1-darwin-x86_64.tar.gz
+-cd filebeat-7.6.1-darwin-x86_64/
