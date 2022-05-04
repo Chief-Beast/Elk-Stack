@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![Network Diagram](images/ELK-Diagram.drawio.png)
+![Network Diagram](images/ELK-Diagram-Final.drawio.png)
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
@@ -27,7 +27,11 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing makes sure that the application will be highly available, in addition to restricting inbound access to the network.
 The load balancer makes sure that incoming traffic will be shared by both vulnerable web servers. Access controls will ensure that only authorized users will be able to connect in the first place.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the VM's on the network and system, watch system metrics, CPU usage, attempted SSH logins, sudo escalation failures and more.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the VM's on the network and system.
+
+-Filebeat monitors log files, collects log events, then forwards them to Elasticsearch or Logstash.
+- Metricbeat records metrics from the system and services running on the server. 
+
 
 The configuration details of each machine may be found below.
 
@@ -36,7 +40,10 @@ The configuration details of each machine may be found below.
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
 | WEB 1    |Web Server| 10.0.0.5   | Linux            |
 | WEB 2    |Web Server| 10.0.0.6   | Linux            |
-| ELK      |Monitoring| 10.0.0.4   | Linux            |
+| ELK      |Monitoring| 10.1.0.4   | Linux            |
+
+Zone #1 - Web 1 and Web 2
+Zone #2 - ELK
 
 ### Access Policies
 
@@ -54,32 +61,18 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | Yes                 |    47.28.3.124       |
-| ELK      | No - Port 5601      |    10.0.0.1-254      |
-| WEB 1    | No                  |    10.0.0.1-254      |
-| WEB 2    | No                  |    10.0.0.1-254      |
+| ELK      | No - Port 5601      |    10.0.0.0/16      |
+| WEB 1    | No                  |    10.0.0.0/16      |
+| WEB 2    | No                  |    10.0.0.0/16     |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because less chance of human error, automating saves time, makes it easy to deploy in other environments. 
 
 The playbook implements the following tasks:
-- Installs docker.io
-- Installs pip3
-- Installs Docker python module
-- Downloads and launches a docker elk container
-- Enables the service docker on boot
-
-- Installs and Lanches Filebeat 
-- Downloads the filebeat .deb file from the Kibana server
-- Enables and Configures system module
-- Setup filebeat
-- Starts filebeat service
-- Enables service on boot
-
-- Installs metric beat
-- Enables and configures docker module for metric beat
-- Starts metric beat
-- Enables service on boot
+- Enables and configures docker module
+- Downloads and installs Filebeat and Metricbeat
+- Starts services for Filebeat and Metricbeat
 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
