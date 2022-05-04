@@ -49,12 +49,14 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 47.28.3.124
+Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 
+
+- 47.28.3.124
 
 Machines within the network can only be accessed by each other.
 The Web Server 1 and Web Server 2 send traffic to the ELK server. 
-- Web 1: 20.24.212.150
-- Web 2: 20.24.212.150
+
+- The Jump Box has access to the ELK VM and the IP address of 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
